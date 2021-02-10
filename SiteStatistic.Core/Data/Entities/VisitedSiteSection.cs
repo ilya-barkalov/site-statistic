@@ -27,6 +27,12 @@ namespace SiteStatistic.Core.Data.Entities
         [Range(minimum: 1, maximum: int.MaxValue)]
         public int SiteSectionId { get; protected set; }
 
+        /// <summary>
+        /// Site section visited date
+        /// </summary>
+        [Required]
+        public DateTime VisitedDate { get; protected set; }
+
         [Obsolete("Constructor using only by ef core", true)]
         protected VisitedSiteSection() { }
 
@@ -34,8 +40,9 @@ namespace SiteStatistic.Core.Data.Entities
         {
             UserId = userId;
             SiteSectionId = siteSectionId;
+            VisitedDate = DateTime.UtcNow;
 
-            Validator.ValidateObject(this, new ValidationContext(this));
+            Validator.ValidateObject(this, new ValidationContext(this), true);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace SiteStatistic.Core.Data.Entities
         /// Name
         /// </summary>
         [Required]
-        [StringLength(maximumLength: 100, MinimumLength = 10)]
+        [StringLength(maximumLength: 100, MinimumLength = 3)]
         public string Name { get; protected set; }
 
         [Obsolete("Constructor using only by ef core", true)]
@@ -27,7 +27,7 @@ namespace SiteStatistic.Core.Data.Entities
         {
             Name = name;
 
-            Validator.ValidateObject(this, new ValidationContext(this));
+            Validator.ValidateObject(this, new ValidationContext(this), true);
         }
     }
 }

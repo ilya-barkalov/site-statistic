@@ -55,7 +55,7 @@ namespace SiteStatistic.Core.Data.Entities
             LastName = lastName;
             MiddleName = middleName;
 
-            Validator.ValidateObject(this, new ValidationContext(this));
+            Validator.ValidateObject(this, new ValidationContext(this), true);
         }
     }
 }
