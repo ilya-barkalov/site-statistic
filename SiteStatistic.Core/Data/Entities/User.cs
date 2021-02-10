@@ -31,7 +31,12 @@ namespace SiteStatistic.Core.Data.Entities
         /// Middle name
         /// </summary>
         [StringLength(maximumLength: 50, MinimumLength = 2)]
-        public string MiddleName { get; protected set; }
+        public string MiddleName
+        { 
+            get => _middleName; 
+            protected set => _middleName = !string.IsNullOrWhiteSpace(value) ? value : null; 
+        }
+        private string _middleName;
         
         /// <summary>
         /// Full name 
@@ -39,7 +44,7 @@ namespace SiteStatistic.Core.Data.Entities
         ///     Builds by pattern: <see cref="LastName"/> + <see cref="FirstName"/> + <see cref="MiddleName"/>
         /// </para>
         /// </summary>
-        public string FullName => $"{LastName} {FirstName} {MiddleName}";
+        public string FullName => $"{LastName} {FirstName} {MiddleName}".Trim();
 
         [Obsolete("Constructor using only by ef core", true)]
         protected User() { }
