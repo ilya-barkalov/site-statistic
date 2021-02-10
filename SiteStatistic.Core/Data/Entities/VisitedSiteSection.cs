@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace SiteStatistic.Core.Data.Entities
 {
@@ -36,13 +37,17 @@ namespace SiteStatistic.Core.Data.Entities
         [Obsolete("Constructor using only by ef core", true)]
         protected VisitedSiteSection() { }
 
-        public VisitedSiteSection(int userId, int siteSectionId)
+        public VisitedSiteSection(int userId, int siteSectionId, DateTime? visitedDate)
         {
             UserId = userId;
             SiteSectionId = siteSectionId;
-            VisitedDate = DateTime.UtcNow;
+            VisitedDate = visitedDate.GetValueOrDefault(DateTime.UtcNow);
 
             Validator.ValidateObject(this, new ValidationContext(this), true);
         }
+
+        public User User { get; set; }
+
+        public SiteSection SiteSection { get; set; }
     }
 }

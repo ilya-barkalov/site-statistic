@@ -21,6 +21,11 @@ namespace SiteStatistic.Data.EFCore.EntityConfiguration
                 .HasColumnName(nameof(SiteSection.Name))
                 .HasColumnType("nvarchar(100)")
                 .IsRequired();
+
+            builder.HasMany(x => x.VisitedSiteSections)
+                .WithOne(x => x.SiteSection)
+                .HasForeignKey(x => x.SiteSectionId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

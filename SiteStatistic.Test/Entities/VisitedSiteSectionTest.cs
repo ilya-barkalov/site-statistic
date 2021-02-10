@@ -12,7 +12,7 @@ namespace SiteStatistic.Test.Entities
         public void VisitedSiteSection_ValidConstructor_ShouldWork()
         {
             // Act
-            var exception = Record.Exception(() => new VisitedSiteSection(1, 1));
+            var exception = Record.Exception(() => new VisitedSiteSection(1, 1, null));
 
             // Assert
             Assert.Null(exception);
@@ -25,7 +25,7 @@ namespace SiteStatistic.Test.Entities
         public void VisitedSiteSection_InvalidConstructor_ShouldFail(int userId, int siteSectionId)
         {
             // Assert
-            Assert.Throws<ValidationException>(() => new VisitedSiteSection(userId, siteSectionId));
+            Assert.Throws<ValidationException>(() => new VisitedSiteSection(userId, siteSectionId, null));
         }
     }
 }

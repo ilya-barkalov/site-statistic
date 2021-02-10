@@ -30,6 +30,22 @@ namespace SiteStatistic.Data.EFCore.EntityConfiguration
                 .HasColumnName(nameof(VisitedSiteSection.SiteSectionId))
                 .HasColumnType("int")
                 .IsRequired();
+
+            builder.Property(x => x.VisitedDate)
+                .HasColumnName(nameof(VisitedSiteSection.VisitedDate))
+                .HasColumnType("datetime2")
+                .IsRequired();
+
+            builder.HasOne(x => x.User)
+                .WithMany(x => x.VisitedSiteSections)
+                .HasForeignKey(x => x.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(x => x.SiteSection)
+                .WithMany(x => x.VisitedSiteSections)
+                .HasForeignKey(x => x.SiteSectionId)
+                .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }

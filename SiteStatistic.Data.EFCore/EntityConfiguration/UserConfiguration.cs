@@ -30,6 +30,11 @@ namespace SiteStatistic.Data.EFCore.EntityConfiguration
             builder.Property(x => x.MiddleName)
                 .HasColumnName(nameof(User.MiddleName))
                 .HasColumnType("nvarchar(50)");
+
+            builder.HasMany(x => x.VisitedSiteSections)
+                .WithOne(x => x.User)
+                .HasForeignKey(x => x.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

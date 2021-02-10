@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace SiteStatistic.Core.Data.Entities
@@ -57,5 +58,7 @@ namespace SiteStatistic.Core.Data.Entities
 
             Validator.ValidateObject(this, new ValidationContext(this), true);
         }
+
+        public ICollection<VisitedSiteSection> VisitedSiteSections { get; protected set; }
     }
 }
