@@ -4,7 +4,7 @@ using MediatR;
 
 using Microsoft.AspNetCore.Mvc;
 
-using SiteStatistic.Infrastructure.Features;
+using SiteStatistic.Infrastructure.Features.GetSections;
 
 namespace SiteStatistic.Controllers
 {
