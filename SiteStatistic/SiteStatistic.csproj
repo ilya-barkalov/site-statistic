@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SiteStatistic.Core\SiteStatistic.Core.csproj" />
-    <ProjectReference Include="..\SiteStatistic.Data.EFCore\SiteStatistic.Data.EFCore.csproj" />
+    <ProjectReference Include="..\SiteStatistic.Infrastructure\SiteStatistic.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
