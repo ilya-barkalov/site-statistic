@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 using SiteStatistic.Core.Data.Entities;
-using SiteStatistic.Data.EFCore;
+using SiteStatistic.Infrastructure.EFCore;
 
 namespace SiteStatistic.Helpers
 {

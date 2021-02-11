@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 using SiteStatistic.Core.Data.Entities;
 
-namespace SiteStatistic.Data.EFCore.EntityConfiguration
+namespace SiteStatistic.Infrastructure.EFCore.EntityConfiguration
 {
     internal class UserConfiguration : IEntityTypeConfiguration<User>
     {

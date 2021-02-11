@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 using SiteStatistic.Core.Data.Entities;
 
-namespace SiteStatistic.Data.EFCore.EntityConfiguration
+namespace SiteStatistic.Infrastructure.EFCore.EntityConfiguration
 {
     internal class VisitedSiteSectionConfiguration : IEntityTypeConfiguration<VisitedSiteSection>
     {

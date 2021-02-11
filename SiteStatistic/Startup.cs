@@ -8,8 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-using SiteStatistic.Data.EFCore;
 using SiteStatistic.Helpers;
+using SiteStatistic.Infrastructure.EFCore;
 
 namespace SiteStatistic
 {

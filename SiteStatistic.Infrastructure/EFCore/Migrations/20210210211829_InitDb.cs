@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace SiteStatistic.Data.EFCore.Migrations
+namespace SiteStatistic.Infrastructure.EFCore.Migrations
 {
     public partial class InitDb : Migration
     {

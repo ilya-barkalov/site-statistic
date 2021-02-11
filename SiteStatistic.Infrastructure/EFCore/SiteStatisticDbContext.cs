@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using SiteStatistic.Core.Data.Entities;
 
-namespace SiteStatistic.Data.EFCore
+namespace SiteStatistic.Infrastructure.EFCore
 {
     public class SiteStatisticDbContext : DbContext
     {
