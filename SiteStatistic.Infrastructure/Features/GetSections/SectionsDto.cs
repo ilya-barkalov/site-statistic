@@ -3,7 +3,7 @@
     public class SectionsDto
     {
         /// <summary>
-        /// Название раздела
+        /// Section name
         /// </summary>
         public string Name { get; set; }
     }

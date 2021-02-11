@@ -5,6 +5,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 using SiteStatistic.Infrastructure.Features.GetSections;
+using SiteStatistic.Infrastructure.Features.GetTopSections;
 
 namespace SiteStatistic.Controllers
 {
@@ -22,10 +23,17 @@ namespace SiteStatistic.Controllers
         /// <summary>
         /// Получить общую статистику
         /// </summary>
-        [HttpGet]
-        public async Task<IActionResult> GetAsync()
+        [HttpGet("sections")]
+        public async Task<IActionResult> GetSections()
         {
             var result = await _mediator.Send(new GetSectionsQuery());
+            return Ok(result);
+        }
+
+        [HttpGet("topsections")]
+        public async Task<IActionResult> GetTopSections(int size)
+        {
+            var result = await _mediator.Send(new GetTopSectionsQuery() { Size = size });
             return Ok(result);
         }
     }
