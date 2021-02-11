@@ -8,8 +8,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-using SiteStatistic.Helpers;
+using SiteStatistic.Infrastructure;
 using SiteStatistic.Infrastructure.EFCore;
+using SiteStatistic.Infrastructure.EFCore.Helpers;
 
 namespace SiteStatistic
 {
@@ -33,6 +34,8 @@ namespace SiteStatistic
                 options.EnableSensitiveDataLogging();
                 options.EnableDetailedErrors();
             });
+
+            services.ConfigureInfrastructure();
 
             services.AddControllers();
         }

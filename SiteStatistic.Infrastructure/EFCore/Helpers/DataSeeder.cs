@@ -5,9 +5,8 @@ using System.Linq;
 using System.Text.Json;
 
 using SiteStatistic.Core.Data.Entities;
-using SiteStatistic.Infrastructure.EFCore;
 
-namespace SiteStatistic.Helpers
+namespace SiteStatistic.Infrastructure.EFCore.Helpers
 {
     public static class DataSeeder
     {
