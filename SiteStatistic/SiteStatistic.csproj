@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.3">
       <PrivateAssets>all</PrivateAssets>
@@ -17,6 +18,10 @@
   <ItemGroup>
     <ProjectReference Include="..\SiteStatistic.Core\SiteStatistic.Core.csproj" />
     <ProjectReference Include="..\SiteStatistic.Infrastructure\SiteStatistic.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ui\src\components\" />
   </ItemGroup>
 
 </Project>
