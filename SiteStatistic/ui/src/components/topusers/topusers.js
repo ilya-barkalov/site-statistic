@@ -18,9 +18,7 @@ export default class TopUsers extends Component {
   async populateWeatherData() {
     const response = await fetch('/api/statistic/topusers');
     const data = await response.json();
-
-    console.log(data);
-
+    
     this.setState({
       users: data,
       loading: false

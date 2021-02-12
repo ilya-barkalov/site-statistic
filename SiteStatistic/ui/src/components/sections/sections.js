@@ -1,59 +1,42 @@
-﻿import React, { Component } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 
-export default class Sections extends Component {
+export const Sections = () => {
 
-  constructor(props) {
-    super(props);
+  const [loading, setLoading] = useState(false);
+  const [sections, setSections] = useState([]);
+  
+  useEffect(() => {
+    const fetchSections = async () => {
+      setLoading(true);
 
-    this.state = {
-      sections: [],
-      loading: true
+      const response = await fetch('/api/statistic/sections');
+      const data = await response.json();
+      
+      setLoading(false)
+      setSections(data);
     };
-  }
 
-  componentDidMount() {
-    this.populateWeatherData();
-  }
+    fetchSections();
+  }, []);
 
-  async populateWeatherData() {
-    const response = await fetch('/api/statistic/sections');
-    const data = await response.json();
-
-    this.setState({
-      sections: data,
-      loading: false
-    });
-  }
-
-  static renderResult(sections) {
-    return (
-      <table className='table table-striped' aria-labelledby="tabelLabel">
-        <thead>
-          <tr>
-            <th>Name</th>
-          </tr>
-        </thead>
-        <tbody>
-          {sections.map(section =>
-            <tr key={section.name}>
-              <td>{section.name}</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-    );
-  }
-
-  render() {
-
-    let contents = this.state.loading
+  return (
+    loading 
       ? <p><em>Loading...</em></p>
-      : Sections.renderResult(this.state.sections);
-
-    return (
-      <div>
-        {contents}
-      </div>
-    );
-  }
-}
+      : (
+        <table className='table table-striped' aria-labelledby="tabelLabel">
+          <thead>
+            <tr>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sections.map(section =>
+              <tr key={section.name}>
+                <td>{section.name}</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      )
+  );
+};

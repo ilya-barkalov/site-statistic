@@ -1,3 +1,3 @@
-﻿import Sections from './sections';
+﻿import { Sections } from './sections';
 
 export default Sections;
