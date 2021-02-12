@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.3" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
@@ -21,6 +22,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SiteStatistic.Core\SiteStatistic.Core.csproj" />
+    <ProjectReference Include="..\SiteStatistic.Infrastructure\SiteStatistic.Infrastructure.csproj" />
+    <ProjectReference Include="..\SiteStatistic\SiteStatistic.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -10,7 +10,7 @@ namespace SiteStatistic.Infrastructure.EFCore.Helpers
 {
     public static class DataSeeder
     {
-        public static void SeedAsync(SiteStatisticDbContext dbContext)
+        public static void Seed(SiteStatisticDbContext dbContext)
         {
             var users = new List<User>()
             {

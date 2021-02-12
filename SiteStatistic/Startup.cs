@@ -44,13 +44,13 @@ namespace SiteStatistic
         {
             dbContext.Database.Migrate();
  
-            if (dbContext.User.Count() == 0)
-            {
-                DataSeeder.SeedAsync(dbContext);
-            }
-
             if (env.IsDevelopment())
             {
+                if (dbContext.User.Count() == 0)
+                {
+                    DataSeeder.Seed(dbContext);
+                }
+
                 app.UseDeveloperExceptionPage();
             }
 

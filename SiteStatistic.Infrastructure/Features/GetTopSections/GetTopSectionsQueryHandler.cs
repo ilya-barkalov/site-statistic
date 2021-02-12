@@ -30,10 +30,10 @@ namespace SiteStatistic.Infrastructure.Features.GetTopSections
 
         public async Task<List<TopSectionsDto>> Handle(GetTopSectionsQuery request, CancellationToken cancellationToken)
         {
-             var result = await _dbContext.Database.GetDbConnection().QueryAsync<TopSectionsDto>(
-                 "[sp_GetTopSections]",
-                 new { Size = request.Size.GetValueOrDefault(TOP_SECTIONS) }, 
-                 commandType: CommandType.StoredProcedure);
+            var result = await _dbContext.Database.GetDbConnection().QueryAsync<TopSectionsDto>(
+                "[sp_GetTopSections]",
+                new { Size = request.Size.GetValueOrDefault(TOP_SECTIONS) }, 
+                commandType: CommandType.StoredProcedure);
 
             return result.OrderByDescending(x => x.NumberOfVisits).ToList();
         }
