@@ -20,8 +20,4 @@
     <ProjectReference Include="..\SiteStatistic.Infrastructure\SiteStatistic.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ui\src\components\" />
-  </ItemGroup>
-
 </Project>
