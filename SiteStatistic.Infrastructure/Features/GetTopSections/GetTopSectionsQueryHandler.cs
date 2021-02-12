@@ -18,6 +18,11 @@ namespace SiteStatistic.Infrastructure.Features.GetTopSections
     {
         private readonly SiteStatisticDbContext _dbContext;
 
+        /// <summary>
+        /// For an empty parameter in the request
+        /// </summary>
+        private const int TOP_SECTIONS = 3;
+
         public GetTopSectionsQueryHandler(SiteStatisticDbContext dbContext)
         {
             _dbContext = dbContext;
@@ -27,10 +32,10 @@ namespace SiteStatistic.Infrastructure.Features.GetTopSections
         {
              var result = await _dbContext.Database.GetDbConnection().QueryAsync<TopSectionsDto>(
                  "[sp_GetTopSections]",
-                 new { request.Size }, 
+                 new { Size = request.Size.GetValueOrDefault(TOP_SECTIONS) }, 
                  commandType: CommandType.StoredProcedure);
 
-            return result.ToList();
+            return result.OrderByDescending(x => x.NumberOfVisits).ToList();
         }
     }
 }

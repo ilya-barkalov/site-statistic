@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 using SiteStatistic.Infrastructure.Features.GetSections;
 using SiteStatistic.Infrastructure.Features.GetTopSections;
+using SiteStatistic.Infrastructure.Features.GetTopUsers;
 
 namespace SiteStatistic.Controllers
 {
@@ -31,9 +32,16 @@ namespace SiteStatistic.Controllers
         }
 
         [HttpGet("topsections")]
-        public async Task<IActionResult> GetTopSections(int size)
+        public async Task<IActionResult> GetTopSections(int? size)
         {
             var result = await _mediator.Send(new GetTopSectionsQuery() { Size = size });
+            return Ok(result);
+        }
+
+        [HttpGet("topusers")]
+        public async Task<IActionResult> GetTopUsers(int? size)
+        {
+            var result = await _mediator.Send(new GetTopUsersQuery() { Size = size });
             return Ok(result);
         }
     }

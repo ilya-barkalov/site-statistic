@@ -8,17 +8,17 @@ namespace SiteStatistic.Infrastructure.EFCore.Migrations
         {
             var script =
                 @"
-                    create procedure [dbo].[sp_GetTopSections] @Size int = 1
-                    as
-                    
-                    select top (@Size) [ss].[Name], count([SiteSectionId]) as NumberOfVisits
-                    from [VisitedSiteSection] as [vss]
-                    inner join [SiteSection] as [ss]
-                    	on [vss].[SiteSectionId] = [ss].[Id]
-                    group by [vss].[SiteSectionId], [ss].[Name]
-                    order by count([SiteSectionId]) desc		
-                    
-                    go
+create procedure [dbo].[sp_GetTopSections] @Size int = 3
+as
+
+select top (@Size) [ss].[Name], count([SiteSectionId]) as NumberOfVisits
+from [VisitedSiteSection] as [vss]
+inner join [SiteSection] as [ss]
+	on [vss].[SiteSectionId] = [ss].[Id]
+group by [vss].[SiteSectionId], [ss].[Name]
+order by count([SiteSectionId]) desc		
+
+go
                 ";
 
             migrationBuilder.Sql(script);

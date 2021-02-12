@@ -2,9 +2,9 @@
 
 using MediatR;
 
-namespace SiteStatistic.Infrastructure.Features.GetTopSections
+namespace SiteStatistic.Infrastructure.Features.GetTopUsers
 {
-    public class GetTopSectionsQuery : IRequest<List<TopSectionsDto>>
+    public class GetTopUsersQuery : IRequest<List<TopUsersDto>>
     {
         /// <summary>
         /// Size
