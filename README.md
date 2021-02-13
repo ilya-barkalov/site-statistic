@@ -1,14 +1,14 @@
 # CQRS implementation via asp core web-api (.core 3.1) and React app
  
 ## Getting Started
- Install npm packeges via powershell etc
+ 1. Install npm packeges via powershell etc
  ```sh
 $ cd .\SiteStatistic\ui\
 $ npm install
 ```
-Change connection string inside the appsettings.json 
+2. Change connection string inside the appsettings.json 
    
-Todo:
+## TODO
   - [ ] Add integration tests
   - [ ] Add unit test for stored procedures
   - [ ] Add unit test for all query handlers 
