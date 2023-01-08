@@ -14,6 +14,7 @@ namespace SiteStatistic
     {
         public static void Main(string[] args)
         {
+            // Test commit from new device
             CreateHostBuilder(args).Build().Run();
         }
 
